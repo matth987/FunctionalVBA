@@ -27,16 +27,16 @@ End Function
 
 
 Public Function Invoker(fo As FunctionObject) As Integer
-  Invoker = fo.CallFunction(3) ` fo already has two bound args so 3 passes to max
+  Invoker = fo.CallFunction(3) ' fo already has two bound args so 3 passes to max
 End Function
 
 
-Public Sub SetupFuncionObject()
+Public Sub SetupFunctionObject()
   Dim fo As New FunctionObject
   Dim entryColl As New Collection
   
   Call fo.WrapFunction("Target")
-  Call fo.BindArgs("Hello!", entryColl) ` "Hello!" passes to name, entryColl to coll
+  Call fo.BindArgs("Hello!", entryColl) ' "Hello!" passes to name, entryColl to coll
   
   Dim result as Integer
   result = Invoker(fo)
