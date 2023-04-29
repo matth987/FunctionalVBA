@@ -63,8 +63,8 @@ Private Function PrepArgs(ByRef moreArgs As Variant) As Variant
         Exit Function
     End If
     
-    If compiledSize > 29 Then _
-        CustomErrorServer.Raise InvalidParameter, "Only up to 30 arguments may be provided."
+    If compiledSize > 30 Then _
+        Err.Raise vbObjectError, , "Only up to 30 arguments may be provided."
 
     If boundSize < 1 Or moreSize < 1 Then
         PrepArgs = IIf(boundSize > 0, m_boundArgs, moreArgs)
@@ -167,8 +167,6 @@ Private Function CallAppRun(ByRef args() As Variant) As Variant
             Call MakeThisThat(CallAppRun, Application.Run(m_funcName, args(0), args(1), args(2), args(3), args(4), args(5), args(6), args(7), args(8), args(9), args(10), args(11), args(12), args(13), args(14), args(15), args(16), args(17), args(18), args(19), args(20), args(21), args(22), args(23), args(24), args(25), args(26), args(27), args(28)))
         Case 29:
             Call MakeThisThat(CallAppRun, Application.Run(m_funcName, args(0), args(1), args(2), args(3), args(4), args(5), args(6), args(7), args(8), args(9), args(10), args(11), args(12), args(13), args(14), args(15), args(16), args(17), args(18), args(19), args(20), args(21), args(22), args(23), args(24), args(25), args(26), args(27), args(28), args(29)))
-        Case Else:
-            CustomErrorServer.Raise RuntimeError, "Code that was thought to be unreachable has been reached! Please inform the maintainer of this tool."
     End Select
 End Function
 
@@ -236,7 +234,5 @@ Private Function CallMember(ByRef args() As Variant) As Variant
             Call MakeThisThat(CallMember, CallByName(m_owner, m_funcName, m_callType, args(0), args(1), args(2), args(3), args(4), args(5), args(6), args(7), args(8), args(9), args(10), args(11), args(12), args(13), args(14), args(15), args(16), args(17), args(18), args(19), args(20), args(21), args(22), args(23), args(24), args(25), args(26), args(27), args(28)))
         Case 29:
             Call MakeThisThat(CallMember, CallByName(m_owner, m_funcName, m_callType, args(0), args(1), args(2), args(3), args(4), args(5), args(6), args(7), args(8), args(9), args(10), args(11), args(12), args(13), args(14), args(15), args(16), args(17), args(18), args(19), args(20), args(21), args(22), args(23), args(24), args(25), args(26), args(27), args(28), args(29)))
-        Case Else:
-            CustomErrorServer.Raise RuntimeError, "Code that was thought to be unreachable has been reached! Please inform the maintainer of this tool."
     End Select
 End Function
