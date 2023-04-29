@@ -1,5 +1,5 @@
 # FunctionalVBA
-Provides functional programming in VBA via a `FunctionObject` class module.
+Enables functional programming (to a large degree) in VBA via a `FunctionObject` class module.
 
 The `FunctionObject` stores information required to execute a function via `Application.Run` or `CallByName`. It effectively wraps a function into an object that can be passed around your code and called at a later point, similar to other functional programming languages.
 
